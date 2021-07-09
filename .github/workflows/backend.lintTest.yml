@@ -1,4 +1,9 @@
 name: Lint and Test
+
+defaults:
+  run:
+    working-directory: backend/weather
+
 on:
   push:
     branches:
@@ -16,8 +21,6 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16.x'
-      - run: cd backend/weather
-      - run: ls -la
       - run: npm ci
       - run: npm run lint
       - run: npm run test
