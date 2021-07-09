@@ -1,0 +1,20 @@
+{
+	"01d": "art_clear.png",
+	"02d": "art_light_clouds.png",
+	"03d": "art_clouds.png",
+	"04d": "art_clouds.png",
+	"09d": "art_rain.png",
+	"10d": "art_light_rain.png",
+	"11d": "art_storm.png",
+	"13d": "art_snow.png",
+	"50d": "art_fog.png",
+	"01n": "art_clear.png",
+	"02n": "art_light_clouds.png",
+	"03n": "art_clouds.png",
+	"04n": "art_clouds.png",
+	"09n": "art_rain.png",
+	"10n": "art_light_rain.png",
+	"11n": "art_storm.png",
+	"13n": "art_snow.png",
+	"50n": "art_fog.png"
+}

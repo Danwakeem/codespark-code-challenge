@@ -14,7 +14,7 @@ const OpenWeatherRepository = () => {
           units: defaultUnits,
         },
       })
-      .then(({ data: { list } }) => list)
+      .then(({ data: { list, city } }) => ({ list, city }))
       .catch((error) => {
         console.error('OpenWeather::getHourly - failed', error);
         throw error;

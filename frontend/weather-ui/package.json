@@ -1,0 +1,44 @@
+{
+  "name": "weather-ui",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "NEXT_PUBLIC_REACT_APP_ENV=dev next dev",
+    "start:ci": "NEXT_PUBLIC_REACT_APP_ENV=cypress next dev",
+    "build": "NEXT_PUBLIC_REACT_APP_ENV=dev next build",
+    "start": "NEXT_PUBLIC_REACT_APP_ENV=dev next start",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run --headed",
+    "cy:run-headless": "$(npm bin)/cypress run --config numTestsKeptInMemory=0,video=false,watchForFileChanges=false,screenshotOnRunFailure=false",
+    "e2e:dev": "TZ=UTC concurrently --success first \"npm run start:ci\" \"wait-on http-get://localhost:3000 && npm run cy:open\" -rk",
+    "test:integration": "TZ=UTC concurrently --success first \"npm run start:ci\" \"wait-on http-get://localhost:3000 && npm run cy:run-headless\" -rk"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.21",
+    "antd": "^4.16.6",
+    "date-fns": "^2.21.3",
+    "graphql": "^15.5.1",
+    "lodash": "^4.17.21",
+    "next": "11.0.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "@rckeller/cypress-unfetch": "^1.0.1",
+    "babel-plugin-styled-components": "^1.13.2",
+    "concurrently": "^6.2.0",
+    "cypress": "^7.7.0",
+    "cypress-wait-until": "^1.7.1",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.3.2",
+    "wait-on": "^6.0.0"
+  }
+}

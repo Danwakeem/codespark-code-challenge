@@ -23,6 +23,10 @@ describe('GQL::Forecast', () => {
     it('should return forecast', async () => {
       const hourlyMock = {
         data: {
+          city: {
+            name: 'Test',
+            country: 'US',
+          },
           list: [
             {
               dt: 1625859789,
@@ -33,6 +37,7 @@ describe('GQL::Forecast', () => {
               weather: [
                 {
                   icon: '1b',
+                  description: 'hi mom',
                 },
               ],
             },
@@ -45,6 +50,7 @@ describe('GQL::Forecast', () => {
               weather: [
                 {
                   icon: '1c',
+                  description: 'hi dad',
                 },
               ],
             },
@@ -62,6 +68,11 @@ describe('GQL::Forecast', () => {
                 max: 100,
               },
               uvi: 0.98,
+              weather: [
+                {
+                  description: 'hi brother',
+                },
+              ],
             },
             {
               dt: 1625427873,
@@ -70,6 +81,11 @@ describe('GQL::Forecast', () => {
                 max: 10,
               },
               uvi: 0.99,
+              weather: [
+                {
+                  description: 'hi sister',
+                },
+              ],
             },
           ],
         },
@@ -84,18 +100,22 @@ describe('GQL::Forecast', () => {
           query GET_FORECAST($zip: Int!) {
             forecast(zip: $zip) {
               id
+              city
+              country
               daily {
                 id
                 dt
                 min
                 max
                 uvi
+                description
                 hourly {
                   id
                   dt
                   temp
                   feelsLike
                   icon
+                  description
                 }
               }
             }
@@ -108,6 +128,8 @@ describe('GQL::Forecast', () => {
 
       expect(out.data.forecast).toEqual({
         id: expectedZipCode.toString(),
+        city: hourlyMock.data.city.name,
+        country: hourlyMock.data.city.country,
         daily: [
           {
             id: `75070:${dailyMock.data.daily[0].dt.toString()}`,
@@ -115,6 +137,7 @@ describe('GQL::Forecast', () => {
             min: dailyMock.data.daily[0].temp.min,
             max: dailyMock.data.daily[0].temp.max,
             uvi: dailyMock.data.daily[0].uvi,
+            description: dailyMock.data.daily[0].weather[0].description,
             hourly: [
               {
                 id: `75070:${hourlyMock.data.list[0].dt.toString()}`,
@@ -122,6 +145,7 @@ describe('GQL::Forecast', () => {
                 temp: hourlyMock.data.list[0].main.temp,
                 feelsLike: hourlyMock.data.list[0].main.feels_like,
                 icon: hourlyMock.data.list[0].weather[0].icon,
+                description: hourlyMock.data.list[0].weather[0].description,
               },
             ],
           },
@@ -131,6 +155,7 @@ describe('GQL::Forecast', () => {
             min: dailyMock.data.daily[1].temp.min,
             max: dailyMock.data.daily[1].temp.max,
             uvi: dailyMock.data.daily[1].uvi,
+            description: dailyMock.data.daily[1].weather[0].description,
             hourly: [
               {
                 id: `75070:${hourlyMock.data.list[1].dt.toString()}`,
@@ -138,6 +163,7 @@ describe('GQL::Forecast', () => {
                 temp: hourlyMock.data.list[1].main.temp,
                 feelsLike: hourlyMock.data.list[1].main.feels_like,
                 icon: hourlyMock.data.list[1].weather[0].icon,
+                description: hourlyMock.data.list[1].weather[0].description,
               },
             ],
           },
@@ -221,6 +247,7 @@ describe('GQL::Forecast', () => {
                   temp
                   feelsLike
                   icon
+                  description
                 }
               }
             }
@@ -263,6 +290,7 @@ describe('GQL::Forecast', () => {
                   temp
                   feelsLike
                   icon
+                  description
                 }
               }
             }
