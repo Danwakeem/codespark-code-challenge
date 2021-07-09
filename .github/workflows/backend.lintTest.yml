@@ -1,0 +1,21 @@
+name: Lint and Test
+on:
+  push:
+    branches:
+      - '*'
+      - '!main'
+    paths:
+      - "graphql/**"
+      - ".github/workflows/backend.lintTest.yml"
+jobs:
+  build:
+    name: Backend Lint and Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test
