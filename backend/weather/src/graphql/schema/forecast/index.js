@@ -1,6 +1,6 @@
 const { gql, ApolloError } = require('apollo-server');
-const { get } = require('lodash');
 const { differenceInDays } = require('date-fns');
+const { get } = require('lodash');
 
 const typeDefs = gql`
   type ForecastHourly {
@@ -28,18 +28,17 @@ const typeDefs = gql`
 
   extend type Query {
     "Query that will return the 5 day forecast"
-    forecast(zip: Int!, countryCode: String): Forecast
+    forecast(zip: Int!): Forecast
   }
 `;
 
 const resolvers = {
   Query: {
-    forecast: async (_, input, { OpenWeather }) => {
+    forecast: async (_, input, { OpenWeatherService }) => {
       try {
-        const response = await OpenWeather.getForecast(input);
+        const response = await OpenWeatherService.getForecast(input);
         return response;
       } catch (error) {
-        console.error(`Forecast::Query::forecast - failed`, error);
         return new ApolloError('Failed to fetch forecast. Please try again.', 'FORECAST_FAILED');
       }
     },

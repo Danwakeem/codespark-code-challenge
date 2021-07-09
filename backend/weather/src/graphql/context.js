@@ -1,5 +1,5 @@
-const { OpenWeather } = require('../services/OpenWeather');
+const { OpenWeatherService } = require('../services/OpenWeather');
 
 module.exports = {
-  OpenWeather: OpenWeather(),
+  OpenWeatherService: OpenWeatherService(),
 };

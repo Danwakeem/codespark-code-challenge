@@ -1,7 +1,7 @@
 {
-  "name": "weather-service",
+  "name": "forecast-service",
   "version": "0.0.1",
-  "description": "Weather service that will interact with open weather apis",
+  "description": "Forecast service that will interact with open weather apis",
   "main": "src/graphql/start.js",
   "repository": "https://github.com/Danwakeem/codespark-code-challenge",
   "author": "Danwakeem",
@@ -26,7 +26,7 @@
     "@apollo/federation": "^0.26.0",
     "apollo-server": "^2.25.2",
     "axios": "^0.21.1",
-    "date-fns": "^2.22.1",
+    "date-fns": "2.21.3",
     "dotenv": "^10.0.0",
     "graphql": "^15.5.1",
     "graphql-type-json": "^0.3.2",
