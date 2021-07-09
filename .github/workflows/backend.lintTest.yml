@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: '16.x'
       - run: cd backend/weather
+      - run: la -la
       - run: npm ci
       - run: npm run lint
       - run: npm run test
