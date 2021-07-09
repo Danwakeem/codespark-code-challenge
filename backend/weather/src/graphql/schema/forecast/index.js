@@ -23,7 +23,6 @@ const typeDefs = gql`
   type Forecast {
     id: ID!
     zip: Int!
-    hourly: [ForecastHourly]
     daily: [ForecastDay]
   }
 
