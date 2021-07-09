@@ -1,0 +1,35 @@
+{
+  "name": "weather-service",
+  "version": "0.0.1",
+  "description": "Weather service that will interact with open weather apis",
+  "main": "src/graphql/start.js",
+  "repository": "https://github.com/Danwakeem/codespark-code-challenge",
+  "author": "Danwakeem",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/graphql/start.js",
+    "dev": "nodemon src/graphql/start.js",
+    "test": "jest ./src --coverage",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint ./src --fix"
+  },
+  "devDependencies": {
+    "apollo-server-testing": "^2.25.2",
+    "eslint": "^7.30.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "jest": "^27.0.6",
+    "nodemon": "^2.0.10",
+    "prettier": "^2.3.2"
+  },
+  "dependencies": {
+    "@apollo/federation": "^0.26.0",
+    "apollo-server": "^2.25.2",
+    "axios": "^0.21.1",
+    "date-fns": "^2.22.1",
+    "dotenv": "^10.0.0",
+    "graphql": "^15.5.1",
+    "graphql-type-json": "^0.3.2",
+    "lodash": "^4.17.21"
+  }
+}
