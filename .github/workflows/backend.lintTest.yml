@@ -13,7 +13,7 @@ on:
       - ".github/workflows/backend.lintTest.yml"
 jobs:
   build:
-    name: Backend Lint and Test
+    name: Lint and Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
