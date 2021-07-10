@@ -4,13 +4,14 @@ const OpenWeatherService = () => {
   const { getHourly, getDaily } = OpenWeatherRepository();
 
   const getForecast = async ({ zip }) => {
-    const [hourly, daily] = await Promise.all([getHourly({ zip }), getDaily({ zip })]);
+    const [{ list: hourly, city }, daily] = await Promise.all([getHourly({ zip }), getDaily({ zip })]);
 
     return {
       id: zip.toString(),
       zip,
       hourly,
       daily,
+      city,
     };
   };
 

@@ -1,0 +1,29 @@
+{
+  "errors": [
+      {
+          "message": "Failed to fetch forecast. Please try again.",
+          "locations": [
+              {
+                  "line": 2,
+                  "column": 5
+              }
+          ],
+          "path": [
+              "forecast"
+          ],
+          "extensions": {
+              "code": "FORECAST_FAILED",
+              "exception": {
+                  "stacktrace": [
+                      "Error: Failed to fetch forecast. Please try again.",
+                      "    at forecast (/Users/dan/projects/codespark-code-challenge/backend/weather/src/graphql/schema/forecast/index.js:46:16)",
+                      "    at processTicksAndRejections (node:internal/process/task_queues:96:5)"
+                  ]
+              }
+          }
+      }
+  ],
+  "data": {
+      "forecast": null
+  }
+}

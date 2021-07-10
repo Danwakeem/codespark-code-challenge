@@ -1,5 +1,5 @@
 const { gql, ApolloError } = require('apollo-server');
-const { differenceInDays } = require('date-fns');
+const { getDayOfYear } = require('date-fns');
 const { get } = require('lodash');
 
 const typeDefs = gql`
@@ -9,6 +9,7 @@ const typeDefs = gql`
     temp: Float
     feelsLike: Float
     icon: String
+    description: String
   }
 
   type ForecastDay {
@@ -17,12 +18,15 @@ const typeDefs = gql`
     min: Float
     max: Float
     uvi: Float
+    description: String
     hourly: [ForecastHourly]
   }
 
   type Forecast {
     id: ID!
     zip: Int!
+    city: String
+    country: String
     daily: [ForecastDay]
   }
 
@@ -44,6 +48,8 @@ const resolvers = {
     },
   },
   Forecast: {
+    city: ({ city: { name } }) => name,
+    country: ({ city: { country } }) => country,
     daily: ({ id, daily, hourly }) => {
       const list = daily.map((day) => ({
         id: `${id}:${day.dt.toString()}`,
@@ -51,14 +57,16 @@ const resolvers = {
         min: day.temp.min,
         max: day.temp.max,
         uvi: day.uvi,
+        description: get(day, 'weather[0].description'),
         hourly: hourly
-          .filter((hour) => differenceInDays(new Date(hour.dt * 1000), new Date(day.dt * 1000)) === 0)
+          .filter((hour) => getDayOfYear(new Date(hour.dt * 1000)) === getDayOfYear(new Date(day.dt * 1000)))
           .map((hour) => ({
             id: `${id}:${hour.dt.toString()}`,
             dt: hour.dt,
             temp: hour.main.temp,
             feelsLike: hour.main.feels_like,
             icon: get(hour, 'weather[0].icon'),
+            description: get(hour, 'weather[0].description'),
           })),
       }));
 
