@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useLazyQuery, gql } from '@apollo/client';
-import { PageHeader, Input } from 'antd';
+import { PageHeader, Input, notification } from 'antd';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { WeatherList } from '../src/components/WeatherList';
@@ -35,7 +35,23 @@ const GET_FORECAST = gql`
 
 export default function Home() {
   const [zip, setZip] = useState();
-  const [getForecast, { loading, data }] = useLazyQuery(GET_FORECAST);
+  const [getForecast, { loading, data }] = useLazyQuery(GET_FORECAST, {
+    onError(error) {
+      if (error) {
+        notification.open({
+          message: 'Could not get weather data',
+          className: 'global-notification-widget',
+          description: 'Please double check the zip code and try again.',
+          style: {
+            background: '#FFF3F8',
+            borderLeftWidth: '4px',
+            borderLeftStyle: 'solid',
+            borderLeftColor: '#FF1675',
+          },
+        });
+      }
+    }
+  });
   const days = data?.forecast?.daily || [];
   const city = data?.forecast?.city;
   const country = data?.forecast?.country;
@@ -43,9 +59,44 @@ export default function Home() {
 
   const onSearch = (code) => {
     if (!code || code.trim() === '') {
-      console.error('Needs to be a number');
+      notification.open({
+        message: 'You must enter a zip code',
+        className: 'global-notification-widget',
+        description: 'The zip code field cannot be blank.',
+        style: {
+          background: '#FFF3F8',
+          borderLeftWidth: '4px',
+          borderLeftStyle: 'solid',
+          borderLeftColor: '#FF1675',
+        },
+      });
+    } else if (/\D/gi.test(code)) {
+      notification.open({
+        message: 'Digits only',
+        className: 'global-notification-widget',
+        description: 'The zip code must contain 5 digits only.',
+        style: {
+          background: '#FFF3F8',
+          borderLeftWidth: '4px',
+          borderLeftStyle: 'solid',
+          borderLeftColor: '#FF1675',
+        },
+      });
+    } else if (!/^\d{5}$/gi.test(code)) {
+      notification.open({
+        message: '5 digit zip code only',
+        className: 'global-notification-widget',
+        description: 'The zip code you entered is not 5 consecutive digits.',
+        style: {
+          background: '#FFF3F8',
+          borderLeftWidth: '4px',
+          borderLeftStyle: 'solid',
+          borderLeftColor: '#FF1675',
+        },
+      });
+    } else {
+      setZip(parseInt(code));
     }
-    setZip(parseInt(code));
   };
 
   useEffect(() => {

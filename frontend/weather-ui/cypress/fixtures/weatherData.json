@@ -27,7 +27,7 @@
               "dt": 1625886000,
               "temp": 80.98,
               "feelsLike": 84.42,
-              "icon": "02n",
+              "icon": "dne",
               "description": "few clouds",
               "__typename": "ForecastHourly"
             }
