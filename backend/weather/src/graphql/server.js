@@ -9,13 +9,15 @@ const server = new ApolloServer({
   schema: buildSchema(),
   context,
   plugins: [responseCachePlugin()],
-  ...(process.env.JEST_WORKER_ID ? {} : {
-    cache: new BaseRedisCache({
-      client: new Redis({
-        host: process.env.REDIS_HOST,
+  ...(process.env.JEST_WORKER_ID
+    ? {}
+    : {
+        cache: new BaseRedisCache({
+          client: new Redis({
+            host: process.env.REDIS_HOST,
+          }),
+        }),
       }),
-    }),
-  }),
   // 2 Hours because that is how long the data refresh time is on OpenWeather free tier
   cacheControl: {
     defaultMaxAge: 7200,
