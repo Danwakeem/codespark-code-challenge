@@ -39,7 +39,7 @@ const OpenWeatherRepository = () => {
           exclude: 'minutely,hourly',
         },
       })
-      .then(({ data: { daily } }) => daily)
+      .then(({ data: { timezone_offset, daily } }) => ({ timezone_offset, daily }))
       .catch((error) => {
         console.error('OpenWeather::getDaily - failed', error);
         throw error;

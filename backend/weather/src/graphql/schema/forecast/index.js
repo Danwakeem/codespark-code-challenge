@@ -22,7 +22,11 @@ const typeDefs = gql`
     hourly: [ForecastHourly]
   }
 
-  type Forecast {
+  """
+  Forecast response from OpenWeather API.
+  This has a 2 hour cache because that is how long the refresh time is on the free tier :)
+  """
+  type Forecast @cacheControl(maxAge: 7200) {
     id: ID!
     zip: Int!
     city: String
@@ -32,7 +36,7 @@ const typeDefs = gql`
 
   extend type Query {
     "Query that will return the 5 day forecast"
-    forecast(zip: Int!): Forecast
+    forecast(zip: String!): Forecast
   }
 `;
 
@@ -50,7 +54,7 @@ const resolvers = {
   Forecast: {
     city: ({ city: { name } }) => name,
     country: ({ city: { country } }) => country,
-    daily: ({ id, daily, hourly }) => {
+    daily: ({ id, daily, hourly, timezone_offset }) => {
       const list = daily.map((day) => ({
         id: `${id}:${day.dt.toString()}`,
         dt: day.dt,
@@ -59,7 +63,11 @@ const resolvers = {
         uvi: day.uvi,
         description: get(day, 'weather[0].description'),
         hourly: hourly
-          .filter((hour) => getDayOfYear(new Date(hour.dt * 1000)) === getDayOfYear(new Date(day.dt * 1000)))
+          .filter(
+            (hour) =>
+              getDayOfYear(new Date(hour.dt * 1000 + timezone_offset * 1000)) ===
+              getDayOfYear(new Date(day.dt * 1000 + timezone_offset * 1000))
+          )
           .map((hour) => ({
             id: `${id}:${hour.dt.toString()}`,
             dt: hour.dt,

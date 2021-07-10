@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: ./backend/weather
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - redis
+    volumes:
+      - ./backend/weather:/usr/src/app
+      - /usr/src/app/node_modules # Remove this if you have pure JS dependencies
+    ports:
+      - "4000:4000"
+  redis:
+    image: redis:alpine
+    command: redis-server --appendonly yes
+    ports:
+      - target: 6379
+        published: 6380
+        protocol: tcp
+        mode: host
+    volumes:
+      - redis_data:/data
+    restart: always
+    environment:
+      - REDIS_REPLICATION_MODE=master
+  web:
+    build:
+      context: ./frontend/weather-ui
+      dockerfile: Dockerfile.dev
+    depends_on:
+      - app
+      - redis
+    volumes:
+      - ./frontend/weather-ui:/usr/src/app
+      - /usr/src/app/node_modules # Remove this if you have pure JS dependencies
+    ports:
+      - "3000:3000"
+
+volumes:
+  redis_data:

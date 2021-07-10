@@ -8,7 +8,7 @@ import { WeatherList } from '../src/components/WeatherList';
 const { Search } = Input;
 
 const GET_FORECAST = gql`
-  query GET_FORECAST($zip: Int!) {
+  query GET_FORECAST($zip: String!) {
     forecast(zip: $zip) {
       id
       city
@@ -95,7 +95,7 @@ export default function Home() {
         },
       });
     } else {
-      setZip(parseInt(code));
+      setZip(code);
     }
   };
 

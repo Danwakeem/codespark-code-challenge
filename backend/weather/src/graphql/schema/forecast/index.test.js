@@ -60,6 +60,7 @@ describe('GQL::Forecast', () => {
 
       const dailyMock = {
         data: {
+          timezone_offset: -1800,
           daily: [
             {
               dt: 1625859797,
@@ -94,10 +95,10 @@ describe('GQL::Forecast', () => {
       axios.get.mockResolvedValueOnce(hourlyMock);
       axios.get.mockResolvedValueOnce(dailyMock);
 
-      const expectedZipCode = 75070;
+      const expectedZipCode = '75070';
       const out = await testServer.query({
         query: gql`
-          query GET_FORECAST($zip: Int!) {
+          query GET_FORECAST($zip: String!) {
             forecast(zip: $zip) {
               id
               city
@@ -127,7 +128,7 @@ describe('GQL::Forecast', () => {
       });
 
       expect(out.data.forecast).toEqual({
-        id: expectedZipCode.toString(),
+        id: expectedZipCode,
         city: hourlyMock.data.city.name,
         country: hourlyMock.data.city.country,
         daily: [
@@ -229,10 +230,10 @@ describe('GQL::Forecast', () => {
       axios.get.mockResolvedValueOnce(hourlyMock);
       axios.get.mockResolvedValueOnce(dailyMock);
 
-      const expectedZipCode = 1;
+      const expectedZipCode = '1';
       const out = await testServer.query({
         query: gql`
-          query GET_FORECAST($zip: Int!) {
+          query GET_FORECAST($zip: String!) {
             forecast(zip: $zip) {
               id
               daily {
@@ -272,10 +273,10 @@ describe('GQL::Forecast', () => {
       );
       axios.get.mockRejectedValue(expectedError);
 
-      const expectedZipCode = 75070;
+      const expectedZipCode = '75070';
       const out = await testServer.query({
         query: gql`
-          query GET_FORECAST($zip: Int!) {
+          query GET_FORECAST($zip: String!) {
             forecast(zip: $zip) {
               id
               daily {
@@ -312,10 +313,10 @@ describe('GQL::Forecast', () => {
       );
       axios.get.mockRejectedValue(expectedError);
 
-      const expectedZipCode = 75070;
+      const expectedZipCode = '75070';
       const out = await testServer.query({
         query: gql`
-          query GET_FORECAST($zip: Int!) {
+          query GET_FORECAST($zip: String!) {
             forecast(zip: $zip) {
               id
               daily {

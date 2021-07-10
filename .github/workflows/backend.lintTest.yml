@@ -8,7 +8,6 @@ on:
   push:
     branches:
       - '*'
-      - '!main'
     paths:
       - "backend/weather/**"
       - ".github/workflows/backend.lintTest.yml"
