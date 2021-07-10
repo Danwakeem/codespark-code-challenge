@@ -5,9 +5,9 @@ COPY package*.json ./
 
 ENV TZ=UTC
 
-RUN npm ci --only=production
+RUN npm ci
 
 COPY . .
 
 EXPOSE 4000
-CMD [ "npm", "start" ]
+CMD [ "npm", "run", "dev" ]

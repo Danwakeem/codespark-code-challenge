@@ -5,6 +5,13 @@ const { GraphQLJSONObject } = GraphQLJSON;
 const typeDefs = gql`
   scalar JSON
   scalar JSONObject
+  directive @cacheControl(maxAge: Int, scope: CacheControlScope) on OBJECT | FIELD | FIELD_DEFINITION
+
+  enum CacheControlScope {
+    PUBLIC
+    PRIVATE
+  }
+
   type Query {
     "Healthcheck endpoint to give a true value if server is running"
     weatherHealthcheck: Boolean!

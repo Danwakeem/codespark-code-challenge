@@ -1,4 +1,4 @@
-name: Lint and Test
+name: Frontend
 
 defaults:
   run:
@@ -8,13 +8,12 @@ on:
   push:
     branches:
       - '*'
-      - '!main'
     paths:
       - "frontend/weather-ui/**"
       - ".github/workflows/frontend.lintTest.yml"
 jobs:
   build:
-    name: Frontend Lint and Test
+    name: Lint and Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
