@@ -1,6 +1,7 @@
 describe('Landing Page', () => {
   beforeEach(() => {
     cy.fixture('weatherData.json').as('getWeatherData');
+    cy.fixture('weatherData.metric.json').as('getMetricWeatherData');
     cy.fixture('weatherData.error.json').as('failToGetWeatherData');
 
     cy.server();
@@ -39,6 +40,23 @@ describe('Landing Page', () => {
 
     // If the icon code isn't recognized it should just show clear
     cy.get('[data-cy="list-item-75070:1625886000"]').find('img').should('have.attr', 'src').should('include','art_clear');
+
+    // Should show Celsius
+    cy.route({
+      method: 'POST',
+      url: '**/graphql?operationName=forecast',
+      status: 200,
+      response: '@getMetricWeatherData',
+    }).as('metricWeatherDataSuccess');
+
+    cy.get('[data-cy="unit-select"]').click();
+    cy.get('[data-cy="unit-select-metric"]').click();
+
+    cy.wait(['@metricWeatherDataSuccess']);
+
+    // Check that weather says Celsius
+    cy.get('.ant-collapse-item').first().should('contain', 'Jul 11 2021 - 9.77 UV Index - moderate rain').click();
+    cy.get('[data-cy="list-item-title-75070:1626015600"]').should('contain', '03:00 pm | 23.99 °C');
 
     // Should see weather data when API is not successful
     cy.route({

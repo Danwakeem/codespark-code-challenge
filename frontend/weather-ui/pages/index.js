@@ -1,15 +1,17 @@
 import Head from 'next/head';
 import { useLazyQuery, gql } from '@apollo/client';
-import { PageHeader, Input, notification } from 'antd';
+import { PageHeader, Input, notification, Select } from 'antd';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import { WeatherList } from '../src/components/WeatherList';
+import { unitsMap } from '../src/utils/constants';
 
 const { Search } = Input;
+const { Option } = Select;
 
 const GET_FORECAST = gql`
-  query GET_FORECAST($zip: String!) {
-    forecast(zip: $zip) {
+  query GET_FORECAST($zip: String!, $units: Units) {
+    forecast(zip: $zip, units: $units) {
       id
       city
       country
@@ -32,6 +34,7 @@ const GET_FORECAST = gql`
 `;
 
 export default function Home() {
+  const [units, setUnits] = useState('imperial');
   const [zip, setZip] = useState();
   const [getForecast, { loading, data }] = useLazyQuery(GET_FORECAST, {
     onError(error) {
@@ -98,14 +101,15 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (zip) {
+    if (zip && zip.trim() !== '') {
       getForecast({
         variables: {
           zip,
+          units,
         },
       });
     }
-  }, [zip, getForecast]);
+  }, [zip, units, getForecast]);
 
   return (
     <div>
@@ -122,8 +126,15 @@ export default function Home() {
       />
 
       <Container>
-        <StyledSearch data-cy="zip-input" placeholder="Your zip code here" onSearch={onSearch} enterButton />
-        <WeatherList loading={loading} days={days} />
+        <SearchSection>
+          <StyledSearch data-cy="zip-input" placeholder="Your zip code here" onSearch={onSearch} enterButton />
+          <Select data-cy="unit-select" defaultValue={units} onChange={(value) => setUnits(value)}>
+            {Object.keys(unitsMap).map((key, index) => (
+              <Option data-cy={`unit-select-${key}`} value={key} key={index}>{unitsMap[key].name}</Option>
+            ))}
+          </Select>
+        </SearchSection>
+        <WeatherList displayUnit={unitsMap[units].display} loading={loading} days={days} />
       </Container>
 
     </div>
@@ -140,6 +151,11 @@ const HeaderDescription = styled.p`
 
 const StyledSearch = styled(Search)`
   width: 100%;
+`;
+
+const SearchSection = styled.div`
+  display: flex;
+  align-items: center;
   margin-bottom: 20px;
 `;
 

@@ -3,10 +3,10 @@ const { OpenWeatherRepository } = require('../repositories/OpenWeather');
 const OpenWeatherService = () => {
   const { getHourly, getDaily } = OpenWeatherRepository();
 
-  const getForecast = async ({ zip }) => {
+  const getForecast = async ({ zip, units }) => {
     const [{ list: hourly, city }, { timezone_offset, daily }] = await Promise.all([
-      getHourly({ zip }),
-      getDaily({ zip }),
+      getHourly({ zip, units }),
+      getDaily({ zip, units }),
     ]);
 
     return {

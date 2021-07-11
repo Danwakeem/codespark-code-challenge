@@ -5,13 +5,13 @@ const OpenWeatherRepository = () => {
   const { API_KEY: appid, BASE_URL: url } = process.env;
   const defaultUnits = 'imperial';
 
-  const getHourly = ({ zip }) =>
+  const getHourly = ({ zip, units }) =>
     axios
       .get(`${url}/forecast`, {
         params: {
           zip,
           appid,
-          units: defaultUnits,
+          units: units || defaultUnits,
         },
       })
       .then(({ data: { list, city } }) => ({ list, city }))
@@ -20,7 +20,7 @@ const OpenWeatherRepository = () => {
         throw error;
       });
 
-  const getDaily = ({ zip }) => {
+  const getDaily = ({ zip, units }) => {
     const position = coords[zip];
     if (!position) {
       const error = new Error('Could not find coordinates');
@@ -34,7 +34,7 @@ const OpenWeatherRepository = () => {
         params: {
           lat,
           lon,
-          units: defaultUnits,
+          units: units || defaultUnits,
           appid,
           exclude: 'minutely,hourly',
         },

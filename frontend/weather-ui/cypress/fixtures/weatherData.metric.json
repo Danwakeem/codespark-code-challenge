@@ -1,0 +1,426 @@
+{
+  "data": {
+    "forecast": {
+      "id": "75070",
+      "city": "Mckinney",
+      "country": "US",
+      "daily": [
+        {
+          "id": "75070:1626026400",
+          "dt": 1626026400,
+          "uvi": 9.77,
+          "description": "moderate rain",
+          "hourly": [
+            {
+              "id": "75070:1626015600",
+              "dt": 1626015600,
+              "temp": 23.99,
+              "feelsLike": 24.59,
+              "icon": "10d",
+              "description": "moderate rain",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626026400",
+              "dt": 1626026400,
+              "temp": 27.34,
+              "feelsLike": 29.25,
+              "icon": "10d",
+              "description": "moderate rain",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626037200",
+              "dt": 1626037200,
+              "temp": 31.63,
+              "feelsLike": 33.05,
+              "icon": "10d",
+              "description": "light rain",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626048000",
+              "dt": 1626048000,
+              "temp": 28.13,
+              "feelsLike": 29.42,
+              "icon": "04d",
+              "description": "broken clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626058800",
+              "dt": 1626058800,
+              "temp": 23.21,
+              "feelsLike": 23.54,
+              "icon": "04n",
+              "description": "broken clouds",
+              "__typename": "ForecastHourly"
+            }
+          ],
+          "__typename": "ForecastDay"
+        },
+        {
+          "id": "75070:1626112800",
+          "dt": 1626112800,
+          "uvi": 9.01,
+          "description": "clear sky",
+          "hourly": [
+            {
+              "id": "75070:1626069600",
+              "dt": 1626069600,
+              "temp": 22.05,
+              "feelsLike": 22.32,
+              "icon": "03n",
+              "description": "scattered clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626080400",
+              "dt": 1626080400,
+              "temp": 21.4,
+              "feelsLike": 21.66,
+              "icon": "01n",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626091200",
+              "dt": 1626091200,
+              "temp": 20.42,
+              "feelsLike": 20.66,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626102000",
+              "dt": 1626102000,
+              "temp": 25.65,
+              "feelsLike": 25.84,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626112800",
+              "dt": 1626112800,
+              "temp": 29.4,
+              "feelsLike": 29.45,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626123600",
+              "dt": 1626123600,
+              "temp": 31,
+              "feelsLike": 30.91,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626134400",
+              "dt": 1626134400,
+              "temp": 29.54,
+              "feelsLike": 30.53,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626145200",
+              "dt": 1626145200,
+              "temp": 25.13,
+              "feelsLike": 25.27,
+              "icon": "01n",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            }
+          ],
+          "__typename": "ForecastDay"
+        },
+        {
+          "id": "75070:1626199200",
+          "dt": 1626199200,
+          "uvi": 8.57,
+          "description": "moderate rain",
+          "hourly": [
+            {
+              "id": "75070:1626156000",
+              "dt": 1626156000,
+              "temp": 23.52,
+              "feelsLike": 23.68,
+              "icon": "01n",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626166800",
+              "dt": 1626166800,
+              "temp": 22.55,
+              "feelsLike": 22.98,
+              "icon": "01n",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626177600",
+              "dt": 1626177600,
+              "temp": 21.75,
+              "feelsLike": 22.38,
+              "icon": "10d",
+              "description": "light rain",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626188400",
+              "dt": 1626188400,
+              "temp": 27.57,
+              "feelsLike": 29.86,
+              "icon": "10d",
+              "description": "light rain",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626199200",
+              "dt": 1626199200,
+              "temp": 30.55,
+              "feelsLike": 32.84,
+              "icon": "10d",
+              "description": "moderate rain",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626210000",
+              "dt": 1626210000,
+              "temp": 32.62,
+              "feelsLike": 34.28,
+              "icon": "04d",
+              "description": "broken clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626220800",
+              "dt": 1626220800,
+              "temp": 30.93,
+              "feelsLike": 33.11,
+              "icon": "03d",
+              "description": "scattered clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626231600",
+              "dt": 1626231600,
+              "temp": 26.52,
+              "feelsLike": 26.52,
+              "icon": "02n",
+              "description": "few clouds",
+              "__typename": "ForecastHourly"
+            }
+          ],
+          "__typename": "ForecastDay"
+        },
+        {
+          "id": "75070:1626285600",
+          "dt": 1626285600,
+          "uvi": 10.82,
+          "description": "clear sky",
+          "hourly": [
+            {
+              "id": "75070:1626242400",
+              "dt": 1626242400,
+              "temp": 25.07,
+              "feelsLike": 25.51,
+              "icon": "02n",
+              "description": "few clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626253200",
+              "dt": 1626253200,
+              "temp": 23.63,
+              "feelsLike": 24.11,
+              "icon": "01n",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626264000",
+              "dt": 1626264000,
+              "temp": 22.8,
+              "feelsLike": 23.38,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626274800",
+              "dt": 1626274800,
+              "temp": 27.97,
+              "feelsLike": 30.35,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626285600",
+              "dt": 1626285600,
+              "temp": 31.4,
+              "feelsLike": 33.29,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626296400",
+              "dt": 1626296400,
+              "temp": 32.61,
+              "feelsLike": 34.26,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626307200",
+              "dt": 1626307200,
+              "temp": 30.81,
+              "feelsLike": 33.1,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626318000",
+              "dt": 1626318000,
+              "temp": 26.7,
+              "feelsLike": 28.16,
+              "icon": "01n",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            }
+          ],
+          "__typename": "ForecastDay"
+        },
+        {
+          "id": "75070:1626372000",
+          "dt": 1626372000,
+          "uvi": 0.13,
+          "description": "broken clouds",
+          "hourly": [
+            {
+              "id": "75070:1626328800",
+              "dt": 1626328800,
+              "temp": 25.35,
+              "feelsLike": 25.85,
+              "icon": "01n",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626339600",
+              "dt": 1626339600,
+              "temp": 24.29,
+              "feelsLike": 24.84,
+              "icon": "01n",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626350400",
+              "dt": 1626350400,
+              "temp": 23.15,
+              "feelsLike": 23.87,
+              "icon": "01d",
+              "description": "clear sky",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626361200",
+              "dt": 1626361200,
+              "temp": 27.44,
+              "feelsLike": 29.32,
+              "icon": "03d",
+              "description": "scattered clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626372000",
+              "dt": 1626372000,
+              "temp": 31.26,
+              "feelsLike": 32.85,
+              "icon": "04d",
+              "description": "broken clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626382800",
+              "dt": 1626382800,
+              "temp": 33.07,
+              "feelsLike": 34.58,
+              "icon": "02d",
+              "description": "few clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626393600",
+              "dt": 1626393600,
+              "temp": 30.69,
+              "feelsLike": 32.69,
+              "icon": "03d",
+              "description": "scattered clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626404400",
+              "dt": 1626404400,
+              "temp": 27.29,
+              "feelsLike": 28.89,
+              "icon": "04n",
+              "description": "overcast clouds",
+              "__typename": "ForecastHourly"
+            }
+          ],
+          "__typename": "ForecastDay"
+        },
+        {
+          "id": "75070:1626458400",
+          "dt": 1626458400,
+          "uvi": 1,
+          "description": "overcast clouds",
+          "hourly": [
+            {
+              "id": "75070:1626415200",
+              "dt": 1626415200,
+              "temp": 26.03,
+              "feelsLike": 26.03,
+              "icon": "04d",
+              "description": "overcast clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626426000",
+              "dt": 1626426000,
+              "temp": 24.68,
+              "feelsLike": 25.29,
+              "icon": "04d",
+              "description": "broken clouds",
+              "__typename": "ForecastHourly"
+            },
+            {
+              "id": "75070:1626436800",
+              "dt": 1626436800,
+              "temp": 23.68,
+              "feelsLike": 24.38,
+              "icon": "04d",
+              "description": "broken clouds",
+              "__typename": "ForecastHourly"
+            }
+          ],
+          "__typename": "ForecastDay"
+        }
+      ],
+      "__typename": "Forecast"
+    }
+  }
+}

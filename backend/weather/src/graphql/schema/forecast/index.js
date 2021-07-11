@@ -22,6 +22,11 @@ const typeDefs = gql`
     hourly: [ForecastHourly]
   }
 
+  enum Units {
+    metric
+    imperial
+  }
+
   """
   Forecast response from OpenWeather API.
   This has a 2 hour cache because that is how long the refresh time is on the free tier :)
@@ -36,7 +41,7 @@ const typeDefs = gql`
 
   extend type Query {
     "Query that will return the 5 day forecast"
-    forecast(zip: String!): Forecast
+    forecast(zip: String!, units: Units): Forecast
   }
 `;
 
