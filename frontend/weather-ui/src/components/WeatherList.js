@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { HourlyWeather } from './HourlyWeather';
 const { Panel } = Collapse;
 
-export const WeatherList = ({ days, loading }) => {
+export const WeatherList = ({ days, loading, displayUnit }) => {
   if (days.length === 0 && !loading) {
     return (
       <NoDataContainer>
@@ -27,7 +27,11 @@ export const WeatherList = ({ days, loading }) => {
             header={`${format(new Date(day.dt * 1000), 'MMM dd yyyy')} - ${day.uvi} UV Index - ${day.description}`}
             key={index}
           >
-            <List itemLayout="horizontal" dataSource={day.hourly} renderItem={(item) => <HourlyWeather {...item} />} />
+            <List
+              itemLayout="horizontal"
+              dataSource={day.hourly}
+              renderItem={(item) => <HourlyWeather {...item} displayUnit={displayUnit} />}
+            />
           </StyledPanel>
         ))}
       </Collapse>
