@@ -16,8 +16,6 @@ const GET_FORECAST = gql`
       daily {
         id
         dt
-        min
-        max
         uvi
         description
         hourly {

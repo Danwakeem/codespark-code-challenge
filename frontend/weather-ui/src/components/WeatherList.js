@@ -24,7 +24,7 @@ export const WeatherList = ({ days, loading }) => {
         {days.map((day, index) => (
           <StyledPanel
             data-cy={`collapse-panel-${index}`}
-            header={`${format(new Date(day.dt * 1000), 'MMM dd yyyy')} - ${day.description}`}
+            header={`${format(new Date(day.dt * 1000), 'MMM dd yyyy')} - ${day.uvi} UV Index - ${day.description}`}
             key={index}
           >
             <List itemLayout="horizontal" dataSource={day.hourly} renderItem={(item) => <HourlyWeather {...item} />} />

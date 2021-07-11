@@ -8,8 +8,6 @@
         {
           "id": "75070:1625853600",
           "dt": 1625853600,
-          "min": 72.36,
-          "max": 84.16,
           "uvi": 9.34,
           "description": "light rain",
           "hourly": [
@@ -37,8 +35,6 @@
         {
           "id": "75070:1625940000",
           "dt": 1625940000,
-          "min": 70.2,
-          "max": 90.75,
           "uvi": 10.74,
           "description": "broken clouds",
           "hourly": [
@@ -120,8 +116,6 @@
         {
           "id": "75070:1626026400",
           "dt": 1626026400,
-          "min": 70.95,
-          "max": 90.27,
           "uvi": 9.77,
           "description": "heavy intensity rain",
           "hourly": [
@@ -203,8 +197,6 @@
         {
           "id": "75070:1626112800",
           "dt": 1626112800,
-          "min": 70.36,
-          "max": 88.39,
           "uvi": 9.76,
           "description": "light rain",
           "hourly": [
@@ -286,8 +278,6 @@
         {
           "id": "75070:1626199200",
           "dt": 1626199200,
-          "min": 74.28,
-          "max": 90.59,
           "uvi": 10.36,
           "description": "scattered clouds",
           "hourly": [
@@ -369,8 +359,6 @@
         {
           "id": "75070:1626285600",
           "dt": 1626285600,
-          "min": 72.77,
-          "max": 90.75,
           "uvi": 0.12,
           "description": "clear sky",
           "hourly": [

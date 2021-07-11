@@ -30,7 +30,7 @@ describe('Landing Page', () => {
     cy.get('[data-cy="header-caption"]').should('contain', '| Mckinney, US');
 
     // The collapsable rows should appear
-    cy.get('.ant-collapse-item').first().should('contain', 'Jul 09 2021 - light rain').click();
+    cy.get('.ant-collapse-item').first().should('contain', 'Jul 09 2021 - 9.34 UV Index - light rain').click();
 
     // The hourly list should appear inside the collapsable rows
     cy.get('[data-cy="list-item-title-75070:1625875200"]').should('contain', '12:00 am | 84.24 °F');
