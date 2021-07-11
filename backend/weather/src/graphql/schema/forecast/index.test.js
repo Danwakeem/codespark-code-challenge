@@ -285,7 +285,7 @@ describe('GQL::Forecast', () => {
         params: {
           zip: expectedZipCode,
           appId: process.env.API_KEY,
-          units: expectedUnits
+          units: expectedUnits,
         },
       });
       expect(out.data.forecast).toEqual({
