@@ -15,3 +15,4 @@ There is a sample environment file called `sample.env` that you can use to creat
 | API_KEY | This is where you will put your [OpenWeather](https://openweathermap.org/) API key |
 | BASE_URL | OpenWeather API base URL so I don't have to hard code this some where :) |
 | DEFAULT_UNITS | This will be used in the case that we don't pass in units to our API |
+| REDIS_HOST | The host URL of the redis instance we are using 😎 |
